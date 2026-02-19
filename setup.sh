@@ -30,3 +30,5 @@ git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 link "$CONFIG_DIR/.vimrc" ~/.vimrc
 link "$CONFIG_DIR/.zshrc" ~/.zshrc
 link "$CONFIG_DIR/nvim" ~/.config/nvim
+
+sudo apt install fd-find
