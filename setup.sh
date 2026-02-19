@@ -14,12 +14,9 @@ link() {
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim-linux-x86_64
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+rm nvim-linux-x86_64.tar.gz
 
 mkdir -p ~/.config
-
-link "$CONFIG_DIR/.vimrc" ~/.vimrc
-link "$CONFIG_DIR/.zshrc" ~/.zshrc
-link "$CONFIG_DIR/nvim" ~/.config/nvim
 
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -29,3 +26,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+
+link "$CONFIG_DIR/.vimrc" ~/.vimrc
+link "$CONFIG_DIR/.zshrc" ~/.zshrc
+link "$CONFIG_DIR/nvim" ~/.config/nvim
