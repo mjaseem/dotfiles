@@ -11,6 +11,10 @@ link() {
   echo "Linked $dst -> $src"
 }
 
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+
 mkdir -p ~/.config
 
 link "$CONFIG_DIR/.vimrc" ~/.vimrc
