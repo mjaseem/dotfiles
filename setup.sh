@@ -16,4 +16,12 @@ mkdir -p ~/.config
 link "$CONFIG_DIR/.vimrc" ~/.vimrc
 link "$CONFIG_DIR/.zshrc" ~/.zshrc
 link "$CONFIG_DIR/nvim" ~/.config/nvim
-link "$CONFIG_DIR/.oh-my-zsh" ~/.oh-my-zsh
+
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
