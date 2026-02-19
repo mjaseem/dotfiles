@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -18,7 +17,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-bindkey -r "^G"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -79,7 +77,7 @@ bindkey -r "^G"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z fzf-tab)
+plugins=(fzf-tab )
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -108,40 +106,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-unsetopt beep
 
-export PATH="$HOME/.local/bin/:$PATH"
-eval $(thefuck --alias)
-source ~/apps/fzf-git.sh
-bindkey '^r' fzf-history-widget
+alias gcm='git checkout master'
+alias gpr='git pull --rebase --autostash'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="/home/dev/apps/git-fuzzy/bin:$PATH"
 
-## aliases
-nalias() {
-    # Get the last command using fc -ln
-    last_command=$(fc -ln -1)
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
-    # Prompt the user to enter an alias name
-    echo "Enter alias name for '$last_command':"
-    read alias_name
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+eval "$(zoxide init zsh)"
 
-    # Create the alias
-    alias_command="alias $alias_name='$last_command'"
 
-    # Append the alias command to .zshrc
-    echo "$alias_command" >> ~/.zshrc
-
-    # Print a message confirming the alias creation
-    echo "Alias created and appended to .zshrc: $alias_command"
-}
-
-gch() {
- git checkout $(git branch --all | fzf|tr -d ' ')
-}
-alias gc='git checkout'
-alias gcm='git checkout master'
-alias gpr='git pull --rebase --autostash'
+if [[ ! -f /usr/share/zsh/vendor-completions/_docker ]]; then
+    sudo mkdir -p /usr/share/zsh/vendor-completions 2>/dev/null
+    sudo touch /usr/share/zsh/vendor-completions/_docker 2>/dev/null
+fi
