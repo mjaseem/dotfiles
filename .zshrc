@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf-tab )
+plugins=(fzf-tab)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -130,3 +130,8 @@ if [[ ! -f /usr/share/zsh/vendor-completions/_docker ]]; then
     sudo mkdir -p /usr/share/zsh/vendor-completions 2>/dev/null
     sudo touch /usr/share/zsh/vendor-completions/_docker 2>/dev/null
 fi
+
+bindkey -r "^G"
+source ~/.fzf-git.sh
+
+
