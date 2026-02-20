@@ -134,4 +134,4 @@ fi
 bindkey -r "^G"
 source ~/.fzf-git.sh
 
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
