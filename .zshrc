@@ -114,6 +114,8 @@ alias gpr='git pull --rebase --autostash'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
@@ -126,13 +128,6 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(zoxide init zsh)"
 
-
-if [[ ! -f /usr/share/zsh/vendor-completions/_docker ]]; then
-    sudo mkdir -p /usr/share/zsh/vendor-completions 2>/dev/null
-    sudo touch /usr/share/zsh/vendor-completions/_docker 2>/dev/null
-fi
-
 bindkey -r "^G"
-source ~/.fzf-git.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.fzf-git.sh
