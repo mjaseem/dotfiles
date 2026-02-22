@@ -8,7 +8,7 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
 --
-vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufLeave" }, {
   pattern = { "*" },
   command = "silent! wall",
   nested = true,

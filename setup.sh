@@ -31,5 +31,5 @@ link "$CONFIG_DIR/.vimrc" ~/.vimrc
 link "$CONFIG_DIR/.zshrc" ~/.zshrc
 link "$CONFIG_DIR/nvim" ~/.config/nvim
 
-sudo apt install fd-find
+sudo apt install fd-find ripgrep
 link "$CONFIG_DIR/.fzf-git.sh" ~/.fzf-git.sh
