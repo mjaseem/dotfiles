@@ -30,6 +30,7 @@ git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 link "$CONFIG_DIR/.vimrc" ~/.vimrc
 link "$CONFIG_DIR/.zshrc" ~/.zshrc
 link "$CONFIG_DIR/nvim" ~/.config/nvim
+link "$CONFIG_DIR/.tmux.conf" ~/.tmux.conf
 
 sudo apt install fd-find ripgrep
 link "$CONFIG_DIR/.fzf-git.sh" ~/.fzf-git.sh
